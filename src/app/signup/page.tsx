@@ -218,7 +218,7 @@ console.log(res)
                     className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                       form.accountType === type
                         ? "border-indigo-500 bg-indigo-50 ring-2 ring-indigo-200"
-                        : "border-gray-200 hover:bg-gray-50"
+                        : "border-gray-200 hover: -50"
                     }`}
                   >
                     <div className="flex items-center">
@@ -259,7 +259,7 @@ console.log(res)
                 !form.password ||
                 !form.accountType
               }
-              className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-indigo-700 disabled:bg-gray-300"
+              className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-indigo-700 disabled: -300"
             >
               {loading ? "Submitting..." : "Next →"}
             </button>

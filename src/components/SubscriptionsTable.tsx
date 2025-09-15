@@ -16,7 +16,7 @@ export default function SubscriptionTable({ data, loading, error, total }: Subsc
       <div className="bg-white border rounded-xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full text-sm">
-            <thead className="bg-gray-50 text-gray-600">
+            <thead className=" -50 text-gray-600">
               <tr>
                 <th className="px-4 py-3 text-left font-medium">User</th>
                 <th className="px-4 py-3 text-left font-medium">Organisation</th>
@@ -81,7 +81,7 @@ function SubscriptionRow({ subscription: s }: { subscription: Subscription }) {
   const pct = Math.round((elapsed / totalPeriodDays) * 100);
 
   return (
-    <tr key={s._id} className="hover:bg-gray-50/60">
+    <tr key={s._id} className="hover: -50/60">
       <td className="px-4 py-3">
         <div className="font-medium text-gray-900">{s.userName || "—"}</div>
         <div className="text-gray-600">{s.userEmail || "—"}</div>
@@ -98,7 +98,7 @@ function SubscriptionRow({ subscription: s }: { subscription: Subscription }) {
       <td className="px-4 py-3">
         <div className="font-medium">{s.planId}</div>
         <div className="mt-2">
-          <div className="h-2 bg-gray-200 rounded-full">
+          <div className="h-2  -200 rounded-full">
             <div
               className={`h-2 rounded-full ${
                 dte <= 3

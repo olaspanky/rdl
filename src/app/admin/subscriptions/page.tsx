@@ -118,7 +118,7 @@ function Pill({
   color?: "gray" | "emerald" | "indigo" | "purple" | "yellow" | "red" | "blue" | "orange";
 }) {
   const map: Record<string, string> = {
-    gray: "bg-gray-100 text-gray-700",
+    gray: " -100 text-gray-700",
     emerald: "bg-emerald-100 text-emerald-700",
     indigo: "bg-indigo-100 text-indigo-700",
     purple: "bg-purple-100 text-purple-700",
@@ -268,7 +268,7 @@ export default function AdminSubscriptionsPage() {
   const total = filtered.length;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen  -50">
       {/* Header */}
       <header className="border-b bg-white">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -281,7 +281,7 @@ export default function AdminSubscriptionsPage() {
           <div className="flex items-center gap-2">
             <button
               onClick={fetchSubs}
-              className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm bg-white hover:bg-gray-50"
+              className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm bg-white hover: -50"
               type="button"
             >
               <RefreshCcw className="w-4 h-4" />
@@ -289,7 +289,7 @@ export default function AdminSubscriptionsPage() {
             </button>
             <button
               onClick={() => downloadCSV(filtered)}
-              className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm bg-white hover:bg-gray-50"
+              className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm bg-white hover: -50"
               type="button"
             >
               <Download className="w-4 h-4" />
@@ -352,17 +352,17 @@ export default function AdminSubscriptionsPage() {
 
           {/* stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
-            <div className="border rounded-lg p-3 bg-gray-50">
+            <div className="border rounded-lg p-3  -50">
               <div className="text-xs text-gray-500">Total filtered</div>
               <div className="text-lg font-semibold">{total}</div>
             </div>
-            <div className="border rounded-lg p-3 bg-gray-50">
+            <div className="border rounded-lg p-3  -50">
               <div className="text-xs text-gray-500">Active</div>
               <div className="text-lg font-semibold">
                 {filtered.filter((s) => (s.status ?? "active") === "active").length}
               </div>
             </div>
-            <div className="border rounded-lg p-3 bg-gray-50">
+            <div className="border rounded-lg p-3  -50">
               <div className="text-xs text-gray-500">Expiring ≤ 7 days</div>
               <div className="text-lg font-semibold">
                 {
@@ -382,7 +382,7 @@ export default function AdminSubscriptionsPage() {
         <div className="bg-white border rounded-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="min-w-full text-sm">
-              <thead className="bg-gray-50 text-gray-600">
+              <thead className=" -50 text-gray-600">
                 <tr>
                   <th className="px-4 py-3 text-left font-medium">User</th>
                   <th className="px-4 py-3 text-left font-medium">Organisation</th>
@@ -442,7 +442,7 @@ export default function AdminSubscriptionsPage() {
                     const pct = Math.round((elapsed / totalPeriodDays) * 100);
 
                     return (
-                      <tr key={s._id} className="hover:bg-gray-50/60">
+                      <tr key={s._id} className="hover: -50/60">
                         <td className="px-4 py-3">
                           <div className="font-medium text-gray-900">{s.userName || "—"}</div>
                           <div className="text-gray-600">{s.userEmail || "—"}</div>
@@ -459,7 +459,7 @@ export default function AdminSubscriptionsPage() {
                         <td className="px-4 py-3">
                           <div className="font-medium">{s.planId}</div>
                           <div className="mt-2">
-                            <div className="h-2 bg-gray-200 rounded-full">
+                            <div className="h-2  -200 rounded-full">
                               <div
                                 className={`h-2 rounded-full ${
                                   dte <= 3

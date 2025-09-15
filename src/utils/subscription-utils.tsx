@@ -133,7 +133,7 @@ export function Pill({
   color?: "gray" | "emerald" | "indigo" | "purple" | "yellow" | "red" | "blue" | "orange";
 }) {
   const map: Record<string, string> = {
-    gray: "bg-gray-100 text-gray-700",
+    gray: " -100 text-gray-700",
     emerald: "bg-emerald-100 text-emerald-700",
     indigo: "bg-indigo-100 text-indigo-700",
     purple: "bg-purple-100 text-purple-700",

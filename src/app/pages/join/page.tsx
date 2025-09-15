@@ -263,7 +263,7 @@ const SignupForm = () => {
                 className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                   formData.accountType === type
                     ? "border-indigo-500 bg-indigo-50 ring-2 ring-indigo-200"
-                    : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                    : "border-gray-200 hover:border-gray-300 hover: -50"
                 }`}
                 aria-pressed={formData.accountType === type}
               >
@@ -297,7 +297,7 @@ const SignupForm = () => {
           type="button"
           onClick={handleNext}
           disabled={!formData.name || !formData.email || !formData.accountType}
-          className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+          className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled: -300 disabled:cursor-not-allowed transition-colors"
         >
           Next →
         </button>
@@ -348,13 +348,13 @@ const SignupForm = () => {
         <p className="text-gray-600 mb-6">Select the plan that best fits your needs.</p>
 
         <div className="flex justify-center mb-6">
-          <div className="inline-flex rounded-lg border border-gray-200 p-1 bg-gray-50">
+          <div className="inline-flex rounded-lg border border-gray-200 p-1  -50">
             <button
               onClick={() => handleBillingCycleChange("monthly")}
               className={`px-4 py-2 rounded-md text-sm font-medium ${
                 formData.billingCycle === "monthly"
                   ? "bg-indigo-600 text-white"
-                  : "bg-transparent text-gray-600 hover:bg-gray-100"
+                  : "bg-transparent text-gray-600 hover: -100"
               }`}
               aria-pressed={formData.billingCycle === "monthly"}
             >
@@ -365,7 +365,7 @@ const SignupForm = () => {
               className={`px-4 py-2 rounded-md text-sm font-medium ${
                 formData.billingCycle === "yearly"
                   ? "bg-indigo-600 text-white"
-                  : "bg-transparent text-gray-600 hover:bg-gray-100"
+                  : "bg-transparent text-gray-600 hover: -100"
               }`}
               aria-pressed={formData.billingCycle === "yearly"}
             >
@@ -381,7 +381,7 @@ const SignupForm = () => {
               className={`border-2 rounded-lg p-6 flex flex-col ${
                 formData.selectedPlan === plan.tier
                   ? "border-indigo-500 bg-indigo-50 ring-2 ring-indigo-200"
-                  : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
+                  : "border-gray-200 hover:border-gray-300 hover: -50"
               }`}
             >
               <h3 className="text-xl font-semibold text-gray-900">{plan.tier}</h3>
@@ -423,7 +423,7 @@ const SignupForm = () => {
                 className={`mt-6 w-full py-3 rounded-lg font-medium transition-colors ${
                   formData.selectedPlan === plan.tier
                     ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                    : "bg-gray-100 text-gray-900 hover:bg-gray-200"
+                    : " -100 text-gray-900 hover: -200"
                 }`}
                 aria-pressed={formData.selectedPlan === plan.tier}
               >
@@ -444,7 +444,7 @@ const SignupForm = () => {
           <button
             onClick={handleNext}
             disabled={!formData.selectedPlan}
-            className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+            className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled: -300 disabled:cursor-not-allowed transition-colors"
           >
             Next →
           </button>
@@ -553,7 +553,7 @@ const SignupForm = () => {
               disabled={
                 !formData.organisation || !formData.role || !formData.teamSize
               }
-              className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+              className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled: -300 disabled:cursor-not-allowed transition-colors"
             >
               Finish
             </button>
