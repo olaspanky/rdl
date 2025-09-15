@@ -1,9 +1,9 @@
-// src/app/signup/plan/PlanContent.tsx
+// src/app/signup/plan/page.tsx
 "use client";
 
 import React, { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Check } from "lucide-react";
 import { pricingData } from "@/lib/pricing";
 
@@ -32,16 +32,18 @@ function getStoredAccountType() {
   }
 }
 
-export default function PlanContent() {
+export default function PlanPage() {
   const router = useRouter();
-  const params = useSearchParams();
 
-  const sid = params.get("sid") ?? "";
-  const name = params.get("name") ?? "";
-  const email = params.get("email") ?? "";
-  const initialCycle = (params.get("billingCycle") ?? "monthly") as BillingCycle;
-  const initialAccountType = (params.get("accountType") ??
-    "") as "" | "enterprise" | "non-enterprise";
+  // Default values instead of reading from useSearchParams
+  const sid = "";
+  const name = "";
+  const email = "";
+  const initialCycle = "monthly" as BillingCycle;
+  const initialAccountType = (getStoredAccountType() || "") as
+    | ""
+    | "enterprise"
+    | "non-enterprise";
 
   const [billingCycle, setBillingCycle] = useState<BillingCycle>(initialCycle);
   const [planType, setPlanType] = useState<PlanType>(
@@ -172,7 +174,7 @@ export default function PlanContent() {
         className={`border-2 rounded-lg p-6 flex flex-col ${
           selectedPlan === plan.tier
             ? "border-indigo-500 bg-indigo-50 ring-2 ring-indigo-200"
-            : "border-gray-200 hover:border-gray-300 hover: -50"
+            : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
         }`}
       >
         <div className="flex items-center">
@@ -219,7 +221,7 @@ export default function PlanContent() {
           className={`mt-6 w-full py-3 rounded-lg font-medium ${
             selectedPlan === plan.tier
               ? "bg-indigo-600 text-white hover:bg-indigo-700"
-              : " -100 text-gray-900 hover: -200"
+              : "bg-gray-100 text-gray-900 hover:bg-gray-200"
           }`}
         >
           {selectedPlan === plan.tier ? "Selected" : "Select Plan"}
@@ -252,13 +254,13 @@ export default function PlanContent() {
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             <div className="flex justify-center md:justify-start">
-              <div className="inline-flex rounded-lg border border-gray-200 p-1  -50">
+              <div className="inline-flex rounded-lg border border-gray-200 p-1 bg-gray-50">
                 <button
                   onClick={() => setBillingCycle("monthly")}
                   className={`px-4 py-2 rounded-md text-sm font-medium ${
                     billingCycle === "monthly"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
                   Monthly
@@ -268,7 +270,7 @@ export default function PlanContent() {
                   className={`px-4 py-2 rounded-md text-sm font-medium ${
                     billingCycle === "yearly"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
                   Yearly
@@ -277,13 +279,13 @@ export default function PlanContent() {
             </div>
 
             <div className="flex justify-center md:justify-end">
-              <div className="inline-flex rounded-lg border border-gray-200 p-1  -50">
+              <div className="inline-flex rounded-lg border border-gray-200 p-1 bg-gray-50">
                 <button
                   onClick={() => setPlanType("all")}
                   className={`px-3 py-2 rounded-md text-sm font-medium ${
                     planType === "all"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                   title="Show all plans"
                 >
@@ -294,7 +296,7 @@ export default function PlanContent() {
                   className={`px-3 py-2 rounded-md text-sm font-medium ${
                     planType === "non-enterprise"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                   title="Show non-enterprise plans"
                 >
@@ -305,7 +307,7 @@ export default function PlanContent() {
                   className={`px-3 py-2 rounded-md text-sm font-medium ${
                     planType === "enterprise"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                   title="Show enterprise plans"
                 >
@@ -331,7 +333,7 @@ export default function PlanContent() {
             <button
               onClick={nextFromPlans}
               disabled={!selectedPlan}
-              className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium disabled: -300"
+              className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium disabled:bg-gray-300"
             >
               Next →
             </button>
@@ -426,7 +428,7 @@ export default function PlanContent() {
                 <button
                   onClick={finishAndPay}
                   disabled={!organisation || !role || !teamSize || loading}
-                  className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium disabled: -300"
+                  className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium disabled:bg-gray-300"
                 >
                   {loading ? "Processing..." : "Continue to payment"}
                 </button>
