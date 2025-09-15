@@ -1,3 +1,4 @@
+// src/app/signup/plan/PlanContent.tsx
 "use client";
 
 import React, { useMemo, useState, useEffect } from "react";
@@ -31,7 +32,7 @@ function getStoredAccountType() {
   }
 }
 
-export default function PlanPage() {
+export default function PlanContent() {
   const router = useRouter();
   const params = useSearchParams();
 
@@ -50,16 +51,14 @@ export default function PlanPage() {
       ? "non-enterprise"
       : "all"
   );
-  const [selectedPlan, setSelectedPlan] = useState<string>(""); // stores the tier/name
+  const [selectedPlan, setSelectedPlan] = useState<string>("");
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // research details
   const [organisation, setOrganisation] = useState("");
   const [role, setRole] = useState("");
   const [teamSize, setTeamSize] = useState("");
 
-  // sets to infer account type from a tier name
   const enterpriseNames = useMemo(
     () => new Set(pricingData.enterprise.map((p) => p.tier)),
     []
@@ -77,7 +76,6 @@ export default function PlanPage() {
     return "";
   };
 
-  // Helper to fetch planId from pricing structure (safer than string-building)
   const getPlanIdFor = (tier: string, cycle: BillingCycle): string => {
     const plan =
       pricingData.nonEnterprise.find((p) => p.tier === tier) ||
@@ -86,7 +84,6 @@ export default function PlanPage() {
     return cycle === "monthly" ? plan.monthly.planId : plan.yearly.planId;
   };
 
-  // plans to render based on planType switch
   type AnyPlan =
     | (typeof pricingData.enterprise)[number]
     | (typeof pricingData.nonEnterprise)[number];
@@ -110,7 +107,7 @@ export default function PlanPage() {
       | "non-enterprise"
       | "";
 
-    const planId = getPlanIdFor(selectedPlan, billingCycle); // e.g., "Explorer_monthly"
+    const planId = getPlanIdFor(selectedPlan, billingCycle);
     const token = getToken();
 
     setLoading(true);
@@ -123,9 +120,9 @@ export default function PlanPage() {
         },
         credentials: "include",
         body: JSON.stringify({
-          planId, // e.g. "Explorer_monthly"
+          planId,
           quantity: 1,
-          accountType, // enterprise | non-enterprise
+          accountType,
           organisation,
           role,
           teamSize,
@@ -149,7 +146,6 @@ export default function PlanPage() {
     }
   };
 
-  // auto-open modal when a plan is selected (instead of rendering void)
   useEffect(() => {
     if (selectedPlan && !showModal) {
       setShowModal(true);
@@ -254,9 +250,7 @@ export default function PlanPage() {
             fits your needs.
           </p>
 
-          {/* Top controls: Billing + Change Plan Type */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-            {/* Billing cycle toggle */}
             <div className="flex justify-center md:justify-start">
               <div className="inline-flex rounded-lg border border-gray-200 p-1  -50">
                 <button
@@ -282,7 +276,6 @@ export default function PlanPage() {
               </div>
             </div>
 
-            {/* Change plan type control */}
             <div className="flex justify-center md:justify-end">
               <div className="inline-flex rounded-lg border border-gray-200 p-1  -50">
                 <button
@@ -322,7 +315,6 @@ export default function PlanPage() {
             </div>
           </div>
 
-          {/* Plans grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {plansToShow.map((plan) => (
               <PlanCard key={plan.tier} plan={plan} />
@@ -347,7 +339,6 @@ export default function PlanPage() {
         </div>
       </div>
 
-      {/* Research details modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
