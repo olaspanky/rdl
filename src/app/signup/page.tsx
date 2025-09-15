@@ -33,62 +33,61 @@ export default function SignupPage() {
     setForm((s) => ({ ...s, accountType: type }));
 
   async function submitAndContinue() {
-    setErr(null);
-    if (!form.name || !form.email || !form.password || !form.accountType) {
-      setErr("Please fill in all required fields.");
-      return;
-    }
-    setLoading(true);
-    try {
-
-      const res = await fetch(`${API_BASE}${AUTH_REGISTER}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          password: form.password,
-          accountType: form.accountType 
-        }),
-        credentials: "include",
-      });
-console.log(res)
-      const data = await res.json().catch(() => ({}));
-      console.log(data)
-      if (!res.ok) {
-
-        const msg =
-          (Array.isArray((data as any)?.errors) &&
-            (data as any).errors.map((e: any) => e.msg).join(", ")) ||
-          (data as any)?.message ||
-          "Signup failed";
-        throw new Error(msg);
-      }
-
-      if ((data as any)?.token) {
-        try {
-          localStorage.setItem("token", (data as any).token);
-          localStorage.setItem(
-            "user",
-            JSON.stringify((data as any).user ?? null)
-          );
-        } catch {
- 
-        }
-      }
-
-.
-      try {
-        localStorage.setItem("accountType", form.accountType);
-      } catch {}
-
-      router.push("/signup/plan");
-    } catch (e: any) {
-      setErr(e?.message || "Could not complete signup");
-    } finally {
-      setLoading(false);
-    }
+  setErr(null);
+  if (!form.name || !form.email || !form.password || !form.accountType) {
+    setErr("Please fill in all required fields.");
+    return;
   }
+  setLoading(true);
+  try {
+    const res = await fetch(`${API_BASE}${AUTH_REGISTER}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        password: form.password,
+        accountType: form.accountType,
+      }),
+      credentials: "include",
+    });
+    console.log(res);
+    const data = await res.json().catch(() => ({}));
+    console.log(data);
+    if (!res.ok) {
+      const msg =
+        (Array.isArray((data as any)?.errors) &&
+          (data as any).errors.map((e: any) => e.msg).join(", ")) ||
+        (data as any)?.message ||
+        "Signup failed";
+      throw new Error(msg);
+    }
+
+    if ((data as any)?.token) {
+      try {
+        localStorage.setItem("token", (data as any).token);
+        localStorage.setItem(
+          "user",
+          JSON.stringify((data as any).user ?? null)
+        );
+      } catch {
+        // Handle localStorage errors silently
+      }
+    }
+
+    try {
+      localStorage.setItem("accountType", form.accountType);
+    } catch {
+      // Handle localStorage errors silently
+    }
+
+    router.push("/signup/plan");
+  } catch (e: any) {
+    setErr(e?.message || "Could not complete signup");
+  } finally {
+    setLoading(false);
+  }
+}
 
   return (
     <div className="min-h-screen flex">
