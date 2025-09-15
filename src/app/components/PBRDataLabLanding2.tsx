@@ -227,20 +227,7 @@ const PBRDataLabLanding = () => {
                 </div>
 
                 {/* CTA Button */}
-                <motion.div 
-                  ref={ctaRef}
-                  className="pt-4"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={ctaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                >
-                  <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md font-medium transition-colors flex items-center">
-                    Explore A Free Sample Dataset
-                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </motion.div>
+               
               </motion.div>
             </motion.div>
 

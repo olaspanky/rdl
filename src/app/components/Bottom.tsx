@@ -420,20 +420,21 @@ const ResearchDataPlatform = () => {
                   </motion.div>
                 </motion.div>
                 
+               <Link href="/signup">
+
                 <motion.button 
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200 text-lg"
                   initial={{ opacity: 0, y: 20 }}
                   animate={plansInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.6, delay: 1.0 }}
+                  transition={{ duration: 0.6, delay: 1.1 }}
                   whileHover={{ 
                     scale: 1.02,
                     transition: { duration: 0.2 }
                   }}
                 >
-                  <Link href="/pages/join">
                   Get started
-                  </Link>
                 </motion.button>
+                 </Link>
               </div>
             </motion.div>
 
@@ -518,7 +519,8 @@ const ResearchDataPlatform = () => {
                     <p className="text-gray-700">Margin posture: 60-75% GM</p>
                   </motion.div>
                 </motion.div>
-                
+                                    <Link href="/signup">
+
                 <motion.button 
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200 text-lg"
                   initial={{ opacity: 0, y: 20 }}
@@ -529,10 +531,10 @@ const ResearchDataPlatform = () => {
                     transition: { duration: 0.2 }
                   }}
                 >
-                    <Link href="/pages/join">
                   Get started
-                  </Link>
                 </motion.button>
+                 </Link>
+
               </div>
             </motion.div>
           </motion.div>
