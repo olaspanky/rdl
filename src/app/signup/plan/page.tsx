@@ -35,7 +35,7 @@ function getStoredAccountType() {
 export default function PlanPage() {
   const router = useRouter();
 
-  // Default values instead of reading from useSearchParams
+  // Default values
   const sid = "";
   const name = "";
   const email = "";
@@ -248,8 +248,7 @@ export default function PlanPage() {
             Choose Your Plan
           </h2>
           <p className="text-gray-600 mb-6">
-            {name ? `Hi ${name.split(" ")[0]}, ` : ""}select the plan that best
-            fits your needs.
+            Select the plan that best fits your needs.
           </p>
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
@@ -355,7 +354,7 @@ export default function PlanPage() {
             </div>
 
             <h2 className="text-2xl font-bold text-gray-900 text-center mb-2">
-              Nice to meet you, {name ? name.split(" ")[0] : "there"}!
+              Nice to meet you!
             </h2>
             <p className="text-center text-gray-600 mb-6">
               Tell us more about your research needs.
