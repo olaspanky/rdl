@@ -478,7 +478,7 @@ const SignupForm = () => {
               htmlFor="organisation"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Name of Organisation*
+              Name of Organisation / Institutioon
             </label>
             <input
               type="text"
@@ -512,34 +512,43 @@ const SignupForm = () => {
               <option value="">Select a role</option>
               <option value="Clinical Researcher">Clinical Researcher</option>
               <option value="Data Analyst">Data Analyst</option>
-              <option value="Research Coordinator">Research Coordinator</option>
+              <option value="Research Coordinator">Student</option>
+              <option value="Research Coordinator">Freelance Researcher</option>
+              <option value="Research Coordinator">Public Health</option>
+              <option value="Research Coordinator">Others</option>
             </select>
           </div>
 
-          <div>
-            <label
-              htmlFor="teamSize"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Team size*
-            </label>
-            <select
-              id="teamSize"
-              name="teamSize"
-              value={formData.teamSize}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              required
-              aria-required="true"
-            >
-              <option value="">Select team size</option>
-              <option value="1-10">1 - 10</option>
-              <option value="11-20">11 - 20</option>
-              <option value="21-50">21 - 50</option>
-              <option value="51+">51+</option>
-            </select>
-          </div>
-
+        <div>
+  <label
+    htmlFor="teamSize"
+    className="block text-sm font-medium text-gray-700 mb-2"
+  >
+    Team size*
+  </label>
+  <select
+    id="teamSize"
+    name="teamSize"
+    value={formData.teamSize}
+    onChange={handleInputChange}
+    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+    required
+    aria-required="true"
+  >
+    <option value="">Select team size</option>
+    <option value="1-5">1 - 5</option>
+    <option value="6-10">6 - 10</option>
+    <option value="11-15">11 - 15</option>
+    <option value="16-20">16 - 20</option>
+    <option value="21-25">21 - 25</option>
+    <option value="26-30">26 - 30</option>
+    <option value="31-35">31 - 35</option>
+    <option value="36-40">36 - 40</option>
+    <option value="41-45">41 - 45</option>
+    <option value="46-50">46 - 50</option>
+    <option value="50+">50+</option>
+  </select>
+</div>
           <div className="flex justify-between mt-6">
             <button
               onClick={handleBack}

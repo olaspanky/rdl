@@ -212,7 +212,6 @@ export default function AdminSubscriptionsPage() {
           "Content-Type": "application/json",
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
-        credentials: "include",
       });
 
       if (!res.ok) throw new Error(`Failed ${res.status}`);

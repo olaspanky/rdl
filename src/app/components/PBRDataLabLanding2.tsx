@@ -14,6 +14,8 @@ const PBRDataLabLanding = () => {
   const imageRef = useRef(null);
   const featuresRef = useRef(null);
   const ctaRef = useRef(null);
+    const platformRef = useRef(null);
+    const screenRef = useRef(null);
 
   // InView hooks
   const sectionInView = useInView(sectionRef, { once: true, margin: "-100px 0px 0px 0px" });
@@ -21,6 +23,8 @@ const PBRDataLabLanding = () => {
   const imageInView = useInView(imageRef, { once: true, margin: "-50px 0px 0px 0px" });
   const featuresInView = useInView(featuresRef, { once: true, margin: "-100px 0px 0px 0px" });
   const ctaInView = useInView(ctaRef, { once: true, margin: "-50px 0px 0px 0px" });
+  const platformInView = useInView(platformRef, { once: true, margin: '-50px 0px 0px 0px' });
+    const screenInView = useInView(screenRef, { once: true, margin: '-100px 0px 0px 0px' });
 
   // Animation variants for features
   const containerVariants: Variants = {
@@ -67,14 +71,63 @@ const PBRDataLabLanding = () => {
   };
 
   return (
-    <div className="min-h-screen  -50">
+    <div className=" p-3  lg:p-20 max-w-[1420px]">
+
+
+
+
+
+              {/* Powerful Platform Section */}
+              <motion.div
+                ref={platformRef}
+                className="text-center "
+                initial={{ opacity: 0, y: 60 }}
+                animate={platformInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+              >
+                <motion.h2
+                  className="text-3xl  sm:text-4xl lg:text-5xl text-white py-20 isidora2 font-semibold"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={platformInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.8, delay: 0.2, type: 'spring' }}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  The world's most powerful
+                  research platform
+                </motion.h2>
+              </motion.div>
+      
+              {/* Platform Interface */}
+              <motion.div
+                ref={screenRef}
+                className="max-w-full  px-4 sm:px-0"
+                initial={{ opacity: 0, y: 80, scale: 0.9 }}
+                animate={screenInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 80, scale: 0.9 }}
+                transition={{ duration: 1, ease: 'easeOut', type: 'spring', stiffness: 100 }}
+              >
+                <motion.img
+                  src="/images/sc22.png"
+                  alt="Platform Interface"
+                  className="w-full h-auto rounded-lg shadow-lg object-cover"
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: '0 25px 50px rgba(0,0,0,0.15)',
+                    transition: { duration: 0.3 },
+                  }}
+                  initial={{ boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
+                />
+              </motion.div>
       {/* What Our Platform Offers Section */}
       <motion.div 
         ref={sectionRef}
-        className=" py-12 sm:py-16 md:py-20 lg:py-24"
+        className=" py-12 sm:py-16 md:py-20 lg:py-32"
         initial={{ opacity: 0 }}
         animate={sectionInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
+        id='resources'
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -84,10 +137,10 @@ const PBRDataLabLanding = () => {
             animate={titleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-2">
+            <motion.h2 className="text-2xl font-isidora2  sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl font-extrabold text-white mb-3 sm:mb-4 leading-tight px-2">
               What Our Platform Offers
             </motion.h2>
-            <motion.p className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+            <motion.p className="text-base sm:text-lg md:text-xl lg:text-xl text-white max-w-3xl mx-auto px-4">
               The Power of Real-World Evidence at Your Fingertips
             </motion.p>
           </motion.div>
@@ -141,10 +194,10 @@ const PBRDataLabLanding = () => {
                     />
                   </motion.div>
                   <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl md:text-xl font-semibold text-gray-900 mb-1 sm:mb-2 leading-tight">
+                    <h3 className="text-lg sm:text-xl md:text-xl font-semibold text-white mb-1 sm:mb-2 leading-tight">
                       Structured & AI-Ready
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-base  text-white leading-relaxed">
                       Standardized data, optimized for Python, R, and SQL.
                     </p>
                   </div>
@@ -166,10 +219,10 @@ const PBRDataLabLanding = () => {
                     />
                   </motion.div>
                   <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl md:text-xl font-semibold text-gray-900 mb-1 sm:mb-2 leading-tight">
+                    <h3 className="text-lg sm:text-xl md:text-xl font-semibold  text-white mb-1 sm:mb-2 leading-tight">
                       Secure & Compliant
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-base  text-white leading-relaxed">
                       GDPR, HIPAA, and ISO 27001 certified.
                     </p>
                   </div>
@@ -191,10 +244,10 @@ const PBRDataLabLanding = () => {
                     />
                   </motion.div>
                   <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl md:text-xl font-semibold text-gray-900 mb-1 sm:mb-2 leading-tight">
+                    <h3 className="text-lg sm:text-xl md:text-xl font-semibold  text-white mb-1 sm:mb-2 leading-tight">
                       Seamless Collaboration
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-base  text-white leading-relaxed">
                       Share datasets, queries, and reports with your research team.
                     </p>
                   </div>
@@ -216,10 +269,10 @@ const PBRDataLabLanding = () => {
                     />
                   </motion.div>
                   <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl md:text-xl font-semibold text-gray-900 mb-1 sm:mb-2 leading-tight">
+                    <h3 className="text-lg sm:text-xl md:text-xl font-semibold  text-white mb-1 sm:mb-2 leading-tight">
                       Cutting-Edge Tools in one go
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-base  text-white leading-relaxed">
                       Research Data Lab revolutionizes African healthcare research by integrating Microsoft Fabric, Power BI, PySpark, SQL, and more into a single, powerful platform.
                     </p>
                   </div>

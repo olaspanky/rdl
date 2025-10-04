@@ -50,7 +50,6 @@ export default function SignupPage() {
           password: form.password,
           accountType: form.accountType 
         }),
-        credentials: "include",
       });
 console.log(res)
       const data = await res.json().catch(() => ({}));
@@ -77,7 +76,7 @@ console.log(res)
         }
       }
 
-.
+
       try {
         localStorage.setItem("accountType", form.accountType);
       } catch {}
@@ -94,7 +93,7 @@ console.log(res)
     <div className="min-h-screen flex">
       <div className="flex-1 relative overflow-hidden">
         <img
-          src="/images/s1.png"
+          src="/images/section.png"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -279,9 +278,9 @@ console.log(res)
 
           <div className="text-center mt-6">
             <span className="text-gray-600">Already have an account? </span>
-            <a href="#" className="text-indigo-600 font-medium">
+            <Link href="/login" className="text-indigo-600 font-medium">
               Log in
-            </a>
+            </Link>
           </div>
         </div>
       </div>

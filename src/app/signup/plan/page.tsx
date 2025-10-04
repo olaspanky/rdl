@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Check } from "lucide-react";
@@ -31,7 +31,7 @@ function getStoredAccountType() {
   }
 }
 
-export default function PlanPage() {
+function PlanPageContent() {
   const router = useRouter();
   const params = useSearchParams();
 
@@ -97,7 +97,11 @@ export default function PlanPage() {
     return [...pricingData.nonEnterprise, ...pricingData.enterprise];
   }, [planType]);
 
-  const backToSignup = () => router.push("/signup");
+const backToSignup = () => {
+  console.log("Back button clicked");
+  router.back();
+};
+  
   const nextFromPlans = () => selectedPlan && setShowModal(true);
 
   const finishAndPay = async () => {
@@ -121,7 +125,6 @@ export default function PlanPage() {
           "Content-Type": "application/json",
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
-        credentials: "include",
         body: JSON.stringify({
           planId, // e.g. "Explorer_monthly"
           quantity: 1,
@@ -176,7 +179,7 @@ export default function PlanPage() {
         className={`border-2 rounded-lg p-6 flex flex-col ${
           selectedPlan === plan.tier
             ? "border-indigo-500 bg-indigo-50 ring-2 ring-indigo-200"
-            : "border-gray-200 hover:border-gray-300 hover: -50"
+            : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
         }`}
       >
         <div className="flex items-center">
@@ -223,7 +226,7 @@ export default function PlanPage() {
           className={`mt-6 w-full py-3 rounded-lg font-medium ${
             selectedPlan === plan.tier
               ? "bg-indigo-600 text-white hover:bg-indigo-700"
-              : " -100 text-gray-900 hover: -200"
+              : "bg-gray-100 text-gray-900 hover:bg-gray-200"
           }`}
         >
           {selectedPlan === plan.tier ? "Selected" : "Select Plan"}
@@ -258,13 +261,13 @@ export default function PlanPage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
             {/* Billing cycle toggle */}
             <div className="flex justify-center md:justify-start">
-              <div className="inline-flex rounded-lg border border-gray-200 p-1  -50">
+              <div className="inline-flex rounded-lg border border-gray-200 p-1 bg-gray-50">
                 <button
                   onClick={() => setBillingCycle("monthly")}
                   className={`px-4 py-2 rounded-md text-sm font-medium ${
                     billingCycle === "monthly"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
                   Monthly
@@ -274,7 +277,7 @@ export default function PlanPage() {
                   className={`px-4 py-2 rounded-md text-sm font-medium ${
                     billingCycle === "yearly"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                 >
                   Yearly
@@ -284,13 +287,13 @@ export default function PlanPage() {
 
             {/* Change plan type control */}
             <div className="flex justify-center md:justify-end">
-              <div className="inline-flex rounded-lg border border-gray-200 p-1  -50">
+              <div className="inline-flex rounded-lg border border-gray-200 p-1 bg-gray-50">
                 <button
                   onClick={() => setPlanType("all")}
                   className={`px-3 py-2 rounded-md text-sm font-medium ${
                     planType === "all"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                   title="Show all plans"
                 >
@@ -301,7 +304,7 @@ export default function PlanPage() {
                   className={`px-3 py-2 rounded-md text-sm font-medium ${
                     planType === "non-enterprise"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                   title="Show non-enterprise plans"
                 >
@@ -312,7 +315,7 @@ export default function PlanPage() {
                   className={`px-3 py-2 rounded-md text-sm font-medium ${
                     planType === "enterprise"
                       ? "bg-indigo-600 text-white"
-                      : "text-gray-600 hover: -100"
+                      : "text-gray-600 hover:bg-gray-100"
                   }`}
                   title="Show enterprise plans"
                 >
@@ -339,7 +342,7 @@ export default function PlanPage() {
             <button
               onClick={nextFromPlans}
               disabled={!selectedPlan}
-              className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium disabled: -300"
+              className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium disabled:bg-gray-300"
             >
               Next →
             </button>
@@ -374,7 +377,7 @@ export default function PlanPage() {
                   className="block text-sm font-medium text-gray-700 mb-2"
                   htmlFor="organisation"
                 >
-                  Name of Organisation*
+                  Name of Organisation / Institution
                 </label>
                 <input
                   id="organisation"
@@ -398,10 +401,12 @@ export default function PlanPage() {
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
                 >
                   <option value="">Select a role</option>
-                  <option value="Clinical Researcher">Clinical Researcher</option>
-                  <option value="Data Analyst">Data Analyst</option>
-                  <option value="Research Coordinator">Research Coordinator</option>
-                </select>
+              <option value="Clinical Researcher">Clinical Researcher</option>
+              <option value="Data Analyst">Data Analyst</option>
+              <option value="Research Coordinator">Student</option>
+              <option value="Research Coordinator">Freelance Researcher</option>
+              <option value="Research Coordinator">Public Health</option>
+              <option value="Research Coordinator">Others</option> </select>
               </div>
 
               <div>
@@ -418,24 +423,34 @@ export default function PlanPage() {
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
                 >
                   <option value="">Select team size</option>
-                  <option value="1-10">1 - 10</option>
-                  <option value="11-20">11 - 20</option>
-                  <option value="21-50">21 - 50</option>
-                  <option value="51+">51+</option>
+    <option value="1-5">1 - 5</option>
+    <option value="6-10">6 - 10</option>
+    <option value="11-15">11 - 15</option>
+    <option value="16-20">16 - 20</option>
+    <option value="21-25">21 - 25</option>
+    <option value="26-30">26 - 30</option>
+    <option value="31-35">31 - 35</option>
+    <option value="36-40">36 - 40</option>
+    <option value="41-45">41 - 45</option>
+    <option value="46-50">46 - 50</option>
+    <option value="50+">50+</option>
                 </select>
               </div>
 
               <div className="flex justify-between mt-6">
                 <button
-                  onClick={() => setShowModal(false)}
-                  className="text-indigo-600 font-medium"
-                >
-                  ← Back
-                </button>
+  onClick={() => {
+    setShowModal(false);
+    setSelectedPlan(""); // Clear selected plan to prevent useEffect from re-opening
+  }}
+  className="text-indigo-600 font-medium"
+>
+  ← Back
+</button>
                 <button
                   onClick={finishAndPay}
                   disabled={!organisation || !role || !teamSize || loading}
-                  className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium disabled: -300"
+                  className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-medium disabled:bg-gray-300"
                 >
                   {loading ? "Processing..." : "Continue to payment"}
                 </button>
@@ -445,5 +460,25 @@ export default function PlanPage() {
         </div>
       )}
     </div>
+  );
+}
+
+// Loading fallback component
+function PlanPageFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-indigo-600 mx-auto"></div>
+        <p className="mt-4 text-gray-600">Loading plans...</p>
+      </div>
+    </div>
+  );
+}
+
+export default function PlanPage() {
+  return (
+    <Suspense fallback={<PlanPageFallback />}>
+      <PlanPageContent />
+    </Suspense>
   );
 }

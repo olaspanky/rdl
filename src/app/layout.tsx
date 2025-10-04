@@ -19,7 +19,7 @@ const work = Work_Sans({
 });
 
 const isidora = localFont({
-  src: '/fonts/IsidoraSans-Black.otf',
+  src: '/fonts/IsidoraSans-Medium.otf',
   variable: '--font-isi',
   display: 'swap',
 });

@@ -188,7 +188,7 @@ const ResearchDataPlatform = () => {
       {/* Hero Section */}
       <motion.section
         ref={heroRef}
-        className="py-20 px-6"
+        className="py-20 px-6 bg-[#B3E2B2]"
         initial={{ opacity: 0 }}
         animate={heroInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
@@ -202,7 +202,7 @@ const ResearchDataPlatform = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h1
-              className="lg:text-[42px] text-[#0D1521] mb-6 leading-tight isidora2 font-[900]"
+              className="lg:text-[36px] text-[#1A3A7B] mb-6 leading-tight isidora2 font-[900]"
               initial={{ opacity: 0, y: 20 }}
               animate={heroTitleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -308,7 +308,7 @@ const ResearchDataPlatform = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.h2
-                className="lg:text-[42px] text-gray-900 mb-8 isidora2 font-[900]"
+                className="text-3xl lg:text-[42px] text-gray-900 mb-8 isidora2 font-[900]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={securityContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -332,14 +332,14 @@ const ResearchDataPlatform = () => {
               >
                 <div className="border-l-4 border-green-500 pl-6">
                   <motion.h3
-                    className="text-2xl text-[#1E293B] mb-4 work"
+                    className=" text-2xl lg:text-2xl text-[#1E293B] mb-4 work"
                     initial={{ opacity: 0, x: -20 }}
                     animate={securityContentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                     transition={{ duration: 0.6, delay: 0.6 }}
                   >
                     Trusted, Compliant & Secure
                   </motion.h3>
-                  <div className="space-y-4 text-[24px] work">
+                  <div className="space-y-4 text-xl lg:text-[24px] work">
                     <motion.div
                       className="flex items-start space-x-3"
                       variants={listItemVariants}
@@ -384,12 +384,12 @@ const ResearchDataPlatform = () => {
       {/* Pricing Section */}
       <motion.section
         ref={pricingRef}
-        className="py-20 px-6 "
+        className="py-20 lg:px-6 p-2 "
         initial={{ opacity: 0 }}
         animate={pricingInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto " id="pricing">
           <motion.div
             ref={pricingTitleRef}
             className="text-left mb-16"
@@ -482,10 +482,7 @@ const ResearchDataPlatform = () => {
                     <Check className="w-6 h-6 mt-0.5 flex-shrink-0" />
                     <p className="text-gray-700">Pre-paid top-ups via card</p>
                   </motion.div>
-                  <motion.div className="flex items-start space-x-3" variants={listItemVariants}>
-                    <Check className="w-6 h-6 mt-0.5 flex-shrink-0" />
-                    <p className="text-gray-700">Margin posture: 45-60% GM</p>
-                  </motion.div>
+                 
                 </motion.div>
 
                 <Link href="/signup">
@@ -531,7 +528,7 @@ const ResearchDataPlatform = () => {
                     animate={plansInView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    annual contract, paid upfront
+                    monthly card billing
                   </motion.p>
                 </div>
 
@@ -566,10 +563,7 @@ const ResearchDataPlatform = () => {
                     <Check className="w-6 h-6 mt-0.5 flex-shrink-0" />
                     <p className="text-gray-700">Contracted overage (monthly bill or pre-paid blocks)</p>
                   </motion.div>
-                  <motion.div className="flex items-start space-x-3" variants={listItemVariants}>
-                    <Check className="w-6 h-6 mt-0.5 flex-shrink-0" />
-                    <p className="text-gray-700">Margin posture: 60-75% GM</p>
-                  </motion.div>
+                 
                 </motion.div>
 
                 <Link href="/signup">

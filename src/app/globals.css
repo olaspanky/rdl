@@ -36,3 +36,13 @@ body {
 .work {
   font-family: var(--work), sans-serif;
 }
+
+.bg1 {
+  background: linear-gradient(
+    90.01deg,
+    #0D1854 80.08%,
+    #265F9C 113.41%,
+    #0084C8 139.01%
+  );
+}
+

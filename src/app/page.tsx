@@ -276,6 +276,7 @@ import PBRDataLabLanding1 from "./components/PBRDataLabLanding1";
 import PBRDataLabLanding2 from "./components/PBRDataLabLanding2";
 import RWEComponent from "./components/Poower";
 import ResearchDataPlatform from "./components/Bottom";
+import LogoSlider from "./components/Slider";
 
 const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -356,41 +357,45 @@ const HomePage = () => {
     { name: "Microsoft Azure", logo: sp9 },
   ];
   return (
-    <div className="min-h-screen bg-white">
+    <div className="lg:min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className=" mx-auto px-4 sm:px-6 lg:px-16">
+      <header className="bg1 shadow-sm sticky top-0 z-50">
+        <div className=" lg:mx-auto px-4 sm:px-6 lg:px-16">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center">
               <img
-                src={"/images/rdlogo.png"}
+                src={"/images/rdlogoo.png"}
                 alt="Logo"
                 className="h-8 w-auto"
               />
             </div>
 
-            {/* Navigation */}
-            <nav className="hidden md:flex space-x-8">
+            {/* Navigation */} 
+            <nav className="hidden md:flex justify-between w-[60%] text-white">
               <a
                 href="#"
-                className="text-gray-900 hover:text-teal-600 transition-colors"
+                className="text-white hover:text-teal-600 transition-colors"
               >
                 Home
               </a>
               <div className="relative group">
-                <button className="flex items-center text-gray-700 hover:text-teal-600 transition-colors">
-                  Products <ChevronDown className="ml-1 w-4 h-4" />
-                </button>
+ <a
+                href="#product"
+                className=" hover:text-teal-600 transition-colors"
+              >                  Products
+                </a>
               </div>
               <div className="relative group">
-                <button className="flex items-center text-gray-700 hover:text-teal-600 transition-colors">
-                  Resources <ChevronDown className="ml-1 w-4 h-4" />
-                </button>
+ <a
+                href="#resources"
+                className=" hover:text-teal-600 transition-colors"
+              >                  Resources 
+                </a>
               </div>
               <a
-                href="#"
-                className="text-gray-700 hover:text-teal-600 transition-colors"
+                href="#pricing"
+                className=" hover:text-teal-600 transition-colors"
               >
                 Pricing
               </a>
@@ -407,15 +412,18 @@ const HomePage = () => {
       </header>
 
       {/* Hero Section */}
-      <section className=" py-20">
+      <section id="home" className="">
         <PBRDataLabLanding1 />
+      </section>
+      <section>
+        <LogoSlider/>
       </section>
 
       {/* Stats Section */}
-      <section className="">
+      <section id="product" className="">
         <PBRDataLabLanding />
       </section>
-      <section className="">
+      <section className="bg1 flex justify-center items-center">
         <PBRDataLabLanding2 />
       </section>
       <section>
@@ -423,16 +431,16 @@ const HomePage = () => {
       </section>
 
       {/* Security Section */}
-       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+       <section className="py-12  px-4 sm:px-6 lg:px-8 bg1">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-xl sm:text-3xl lg:text-5xl font-bold text-gray-900 mb-4 isidora">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[42px] font-extrabold text-white mb-8 sm:mb-10 lg:mb-12 leading-tight text-center font-isidora2">
           The World's Most Secure Platform
         </h2>
-        <p className="text-xs sm:text-sm lg:text-lg text-[#666666] mb-8 sm:mb-12 work">
+        <p className="text-xs sm:text-sm lg:text-lg text-[white] mb-8 sm:mb-12 work">
           Because Biomedical Data Needs It
         </p>
 
-       <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl mb-8 sm:mb-12  lg:hidden">
+       <div className="bg-white  rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl mb-8 sm:mb-12  lg:hidden">
   <div className="flex flex-col sm:flex-row justify-center items-center sm:items-start sm:justify-between gap-4 sm:gap-6 lg:gap-12 mb-6">
     {/* Flex container adjusted to use justify-between on larger screens for balanced spacing */}
     <div className="flex-shrink-0">
@@ -454,7 +462,7 @@ const HomePage = () => {
   </div>
 </div>
 
-<div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl mb-12 gap-7 hidden lg:block">
+<div className="bg-white rounded-3xl p-8 shadow-xl mb-12 gap-7 hidden lg:block">
             <div className="flex justify-left gap-7 mb-6">
               <img src="/images/sec.png" alt="" className="text-blue-600" />
               <div className="px-5 border-l-1 py-9 border-black">
