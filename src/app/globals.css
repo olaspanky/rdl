@@ -33,9 +33,33 @@ body {
 .isidora2 {
   font-family: var(--font-isidora);
 }
+.isidora3 {
+  font-family: var(--font-isidora3);
+}
 .work {
   font-family: var(--work), sans-serif;
 }
+
+.work1 {
+  font-family: var(--work1), sans-serif;
+  font-weight: 300;
+}
+
+.work2 {
+  font-family: var(--work2), sans-serif;
+  font-weight: 400;
+}
+
+.work3 {
+  font-family: var(--work3), sans-serif;
+  font-weight: 500;
+}
+
+.work4 {
+  font-family: var(--work4), sans-serif;
+  font-weight: 600;
+}
+
 
 .bg1 {
   background: linear-gradient(

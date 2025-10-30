@@ -12,6 +12,7 @@ import {
   Settings,
   Star,
 } from "lucide-react";
+import Link from "next/link";
 
 const PBRDataLabLanding = () => {
   const [email, setEmail] = useState("");
@@ -39,6 +40,7 @@ const PBRDataLabLanding = () => {
 
             {/* Email Signup */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 items-start sm:items-center">
+              <Link href="https://researchdatalab.pbrinsight.com/signup">
               <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-medium transition-colors flex items-center justify-center w-full sm:w-48">
                 Explore Data
                 <svg
@@ -55,6 +57,7 @@ const PBRDataLabLanding = () => {
                   />
                 </svg>
               </button>
+              </Link>
             </div>
             {/* Rating */}
           </div>

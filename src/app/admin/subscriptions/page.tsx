@@ -25,7 +25,7 @@ type Subscription = {
 
 const API_URL =
   process.env.NEXT_PUBLIC_ADMIN_API_URL ||
-  "http://localhost:3001/billing/admin/subscriptions";
+  "https://api.rdl.pbr.com.ng/billing/admin/subscriptions";
 
 /* --------------- utils ---------------- */
 const fmtDate = (iso?: string) =>
