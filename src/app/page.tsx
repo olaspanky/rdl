@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Footer from "./components/Footer";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -11,14 +12,33 @@ export default function LandingPage() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const faqItems = [
-    "Do you provide non-African data?",
-    "How does the platform help with data sovereignty?",
-    "What analysis tools are included?",
-    "Can we collaborate across institutions?",
-    "How often is the data updated?",
-    "What countries and facilities are currently covered?",
-  ];
+ const faqItems = [
+  {
+    question: "Do you provide non-African data?",
+    answer: "No. PBR Research Data Lab focuses on African pharmacy, claims, and hospital data so you can combine it with your existing global sources."
+  },
+  {
+    question: "How does the platform help with data sovereignty?",
+    answer: "Analyses run in‑platform—no raw dataset downloads. You can export only governed outputs (aggregates or approved extracts), retaining residency while collaborating across borders using roles and project spaces."
+  },
+  {
+    question: "What analysis tools are included?",
+    answer: "Built‑in Python and R notebooks, plus LLM assistance for code suggestions, summaries, and chart narration—accelerating work while enhancing clarity for multi‑disciplinary teams."
+  },
+  {
+    question: "Can we collaborate across institutions?",
+    answer: "Yes. Create shared projects, assign roles, and share reproducible results securely with partners and external collaborators."
+  },
+  {
+    question: "How often is the data updated?",
+    answer: "Datasets are refreshed quarterly, with pharmacy data available from Q1 2021 to date and hospital data from Q1 2024 to date."
+  },
+  {
+    question: "What countries and facilities are currently covered?",
+    answer: "Nigeria and Ghana, spanning 7,000+ hospitals and 2,000+ pharmacies."
+  },
+];
+
 
   return (
     <div className="min-h-screen bg-[#E0E8F0] isidora">
@@ -76,7 +96,8 @@ export default function LandingPage() {
                       />
                     </div>
                   </button>
-                  <button className="border-2 border-[#2C4A7C] text-[#2C4A7C] px-6 lg:px-8 py-3 rounded-full hover:bg-[#2C4A7C] hover:text-white transition flex items-center justify-center gap-3 lg:gap-5">
+                  <Link href="#pricing">
+                   <button className="border-2 border-[#2C4A7C] text-[#2C4A7C] px-6 lg:px-8 py-3 rounded-full hover:bg-[#2C4A7C] hover:text-white transition flex items-center justify-center gap-3 lg:gap-5">
                     View plans
                     <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-full bg-[#2C4A7C] flex justify-center items-center">
                       <img
@@ -86,6 +107,8 @@ export default function LandingPage() {
                       />
                     </div>
                   </button>
+                  </Link>
+                 
                 </div>
               </div>
             </div>
@@ -134,6 +157,8 @@ export default function LandingPage() {
                     />
                   </div>
                 </button>
+                                  <Link href="#pricing">
+
                 <button className="border-2 border-[#2C4A7C] text-[#2C4A7C] px-6 py-3 rounded-full hover:bg-[#2C4A7C] hover:text-white transition flex items-center justify-center gap-2 text-sm sm:text-base">
                   View plans
                   <div className="w-8 h-8 rounded-full bg-[#2C4A7C] flex justify-center items-center">
@@ -144,6 +169,7 @@ export default function LandingPage() {
                     />
                   </div>
                 </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -426,16 +452,19 @@ export default function LandingPage() {
                 </span>
               </li>
             </ul>
+                              <Link href="#pricing">
+
             <button className="border border-white text-white px-6 sm:px-8 py-3 hover:bg-white hover:text-[#2C4A7C] transition flex items-center gap-4 sm:gap-7 text-sm sm:text-base">
               View plans
               <img src="/images/ar.svg" alt="Arrow" className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Pricing */}
-      <section className="px-4 py-8 sm:px-6 sm:py-12 lg:px-12 lg:py-20">
+      <section id="pricing" className="px-4 py-8 sm:px-6 sm:py-12 lg:px-12 lg:py-20">
         <div className="max-w-7xl mx-auto lg:flex gap-2 justify-center  items-center">
           <h2 className="text-3xl sm:text-4xl xl:text-[50px] isidora font-bold text-gray-900 mb-8 sm:mb-12 text-center">
             Pricing
@@ -450,9 +479,12 @@ export default function LandingPage() {
               <p className="text-gray-600 mb-6 text-sm sm:text-base work1 text-center">
                 Ideal for individual researchers and small teams
               </p>
+                                <Link href="/signup">
+
               <button className="text-sm sm:text-base work1 w-full border-2 border-[#008CCC] text-[#008CCC] py-3 rounded-md hover:bg-[#2C4A7C] hover:text-white transition">
                 Get started
               </button>
+              </Link>
             </div>
 
             {/* Enterprise */}
@@ -463,9 +495,12 @@ export default function LandingPage() {
               <p className="text-gray-600 mb-6 text-sm sm:text-base work1 text-center">
                 Organization-wide access and priority support
               </p>
+             <Link href="/signup">
+
               <button className="text-sm sm:text-base work1 w-full border-2 border-[#008CCC] text-[#008CCC] py-3 rounded-md hover:bg-[#2C4A7C] hover:text-white transition">
                 Get started
               </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -478,40 +513,40 @@ export default function LandingPage() {
             You have questions? We have answers.
           </h2>
 
-          <div className="mt-8 sm:mt-12 space-y-4">
-            {faqItems.map((question, index) => (
-              <div key={index} className="border-t border-gray-200">
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between py-4 sm:py-6 text-left hover:text-[#2C4A7C] transition"
-                >
-                  <span className="text-sm sm:text-base lg:text-lg font-medium text-gray-900 pr-4">
-                    {question}
-                  </span>
-                  <svg
-                    className={`w-5 h-5 sm:w-6 sm:h-6 text-gray-400 transition-transform flex-shrink-0 ${
-                      openFaq === index ? "transform rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {openFaq === index && (
-                  <div className="pb-4 sm:pb-6 text-gray-600 text-sm sm:text-base">
-                    <p>Answer content goes here...</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+         <div className="mt-8 sm:mt-12 space-y-4">
+  {faqItems.map((item, index) => (
+    <div key={index} className="border-t border-gray-200">
+      <button
+        onClick={() => toggleFaq(index)}
+        className="w-full flex items-center justify-between py-4 sm:py-6 text-left hover:text-[#2C4A7C] transition"
+      >
+        <span className="text-sm sm:text-base lg:text-lg font-medium text-gray-900 pr-4">
+          {item.question}
+        </span>
+        <svg
+          className={`w-5 h-5 sm:w-6 sm:h-6 text-gray-400 transition-transform flex-shrink-0 ${
+            openFaq === index ? "transform rotate-180" : ""
+          }`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+      {openFaq === index && (
+        <div className="pb-4 sm:pb-6 text-gray-600 text-sm sm:text-base">
+          <p>{item.answer}</p>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
         </div>
       </section>
 
