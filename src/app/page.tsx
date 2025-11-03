@@ -147,7 +147,7 @@ export default function LandingPage() {
                 analytics to deliver your global evidence generation
               </p>
               <div className="flex flex-col gap-3">
-                <button className="bg-[#2C4A7C] text-white px-6 py-3 rounded-full hover:bg-[#1e3456] transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                <button className="bg-[#2C4A7C] text-white px-6 py-3 rounded-full hover:bg-[#1e3456] transition flex items-center justify-between gap-2 text-sm sm:text-base">
                   Watch demo
                   <div className="w-8 h-8 rounded-full flex justify-center items-center">
                     <img
@@ -159,7 +159,7 @@ export default function LandingPage() {
                 </button>
                                   <Link href="#pricing">
 
-                <button className="border-2 border-[#2C4A7C] text-[#2C4A7C] px-6 py-3 rounded-full hover:bg-[#2C4A7C] hover:text-white transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                <button className="w-full border-2 border-[#2C4A7C] text-[#2C4A7C] px-6 py-3 rounded-full hover:bg-[#2C4A7C] hover:text-white transition flex items-center justify-between gap-2 text-sm sm:text-base">
                   View plans
                   <div className="w-8 h-8 rounded-full bg-[#2C4A7C] flex justify-center items-center">
                     <img
