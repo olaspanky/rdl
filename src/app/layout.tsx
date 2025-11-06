@@ -53,6 +53,11 @@ const isidora3 = localFont({
   variable: "--font-isidora3",
   display: "swap",
 });
+const isidora4 = localFont({
+  src: "/fonts/IsidoraSans-Bold.otf",
+  variable: "--font-isidora3",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Research Data Lab",
@@ -67,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${isidora.variable} ${isidora2.variable} ${isidora3.variable} ${work1.variable} ${work2.variable} ${work3.variable} ${work4.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${isidora.variable} ${isidora2.variable} ${isidora3.variable} ${isidora4.variable} ${work1.variable} ${work2.variable} ${work3.variable} ${work4.variable} antialiased`}
       >
         {children}
       </body>

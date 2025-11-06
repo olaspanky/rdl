@@ -36,6 +36,9 @@ body {
 .isidora3 {
   font-family: var(--font-isidora3);
 }
+.isidora4 {
+  font-family: var(--font-isidora4);
+}
 .work {
   font-family: var(--work), sans-serif;
 }
@@ -70,3 +73,12 @@ body {
   );
 }
 
+section {
+  width: 100vw; /* full viewport width */
+  margin-left: calc(50% - 50vw); /* remove container padding/margin */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}

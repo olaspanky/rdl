@@ -77,7 +77,7 @@ export default function LandingPage() {
             {/* Text Content - Overlaps on large screens */}
             <div className="lg:w-5/12 relative z-10 xl:-mr-32">
               <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl p-8 lg:p-12 border border-white/50 lg:w-[590px] xl:w-[700px] 2xl:w-[1000px]">
-                <h1 className="text-3xl lg:text-4xl 2xl:text-[52px] text-[#2C4A7C] mb-6 leading-tight isidora3 font-[700]">
+                <h1 className="text-3xl lg:text-4xl 2xl:text-[52px] text-[#2C4A7C] mb-6 leading-tight isidora4 font-[700]">
                   Revolutionize Your Research With Africa's Top AI Health Data
                   Platform
                 </h1>
@@ -86,7 +86,7 @@ export default function LandingPage() {
                   analytics to deliver your global evidence generation
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 lg:gap-9">
-                  <button className="bg-[#2C4A7C] text-white px-6 lg:px-8 py-3 rounded-full hover:bg-[#1e3456] transition flex items-center justify-center gap-3 lg:gap-5 shadow-lg">
+                  <button className="bg-[#2C4A7C] text-white 2xlw-56 w-48 p-2 2xl:py-3 hover:pr-5  rounded-full hover:bg-[] transition flex items-center justify-between gap-3 lg:gap-5  hover:shadow-2xl">
                     Watch demo
                     <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-full flex justify-center items-center">
                       <img
@@ -96,8 +96,8 @@ export default function LandingPage() {
                       />
                     </div>
                   </button>
-                  <Link href="#pricing">
-                   <button className="border-2 border-[#2C4A7C] text-[#2C4A7C] px-6 lg:px-8 py-3 rounded-full hover:bg-[#2C4A7C] hover:text-white transition flex items-center justify-center gap-3 lg:gap-5">
+                  <Link href="#pricing" className="p-1 border-2 border-[#2C4A7C] text-[#2C4A7C] rounded-full w-48   2xl:w-56  ">
+                   <button className="hover:bg-[#2C4A7C] hover:text-white w-full h-full flex items-center justify-between gap-3 lg:gap-5 transition rounded-full p-2 lg:px-2 2xl:py-3">
                     View plans
                     <div className="w-10 h-10 2xl:w-12 2xl:h-12 rounded-full bg-[#2C4A7C] flex justify-center items-center">
                       <img
@@ -264,7 +264,7 @@ export default function LandingPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Capability 1 */}
-            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition bg-white">
+            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition ">
               <div className="w-12 h-12 bg-[#2C4A7C] rounded-lg mb-4 flex items-center justify-center">
                 <img src="./images/rc1.svg" alt="Integrated Analytics" />
               </div>
@@ -282,7 +282,7 @@ export default function LandingPage() {
             </div>
 
             {/* Capability 2 */}
-            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition bg-white">
+            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition ">
               <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center">
                 <img src="./images/rc2.svg" alt="AI Empowerment" />
               </div>
@@ -299,7 +299,7 @@ export default function LandingPage() {
             </div>
 
             {/* Capability 3 */}
-            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition bg-white">
+            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition ">
               <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center">
                 <img src="./images/rc3.svg" alt="Collaboration workspaces" />
               </div>
@@ -315,7 +315,7 @@ export default function LandingPage() {
             </div>
 
             {/* Capability 4 */}
-            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition bg-white">
+            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition">
               <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center">
                 <img src="./images/rc4.svg" alt="Data Structure" />
               </div>
@@ -332,7 +332,7 @@ export default function LandingPage() {
             </div>
 
             {/* Capability 5 */}
-            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition bg-white">
+            <div className="border-2 border-[#FFFFFF01] p-6 rounded-lg shadow-sm hover:shadow-lg transition">
               <div className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center">
                 <img src="./images/rc5.svg" alt="Quarterly Updates" />
               </div>
@@ -402,66 +402,56 @@ export default function LandingPage() {
       </section>
 
       {/* Who it's for */}
-      <section className="px-4 py-8 sm:px-6 sm:py-12 lg:px-12 bg-[radial-gradient(50%_107.4%_at_50%_50%,#26B1F3_0%,#1D3C77_100%)]">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <img 
-              src="./images/r11.png" 
-              alt="Who it's for" 
-              className="w-full h-full object-cover rounded-lg" 
-            />
-          </div>
-          <div className="text-white order-1 lg:order-2">
-            <h2 className="text-3xl sm:text-4xl xl:text-[50px] text-white mb-6 sm:mb-8 leading-tight isidora1 font-[700]">
-              Who it's for
-            </h2>
-            <ul className="space-y-4 sm:space-y-5 mb-6 sm:mb-8 work2 text-sm sm:text-base lg:text-[18px]">
-              <li className="flex items-start gap-3">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 bg-[#1B61C9] rounded-full flex justify-center items-center flex-shrink-0 mt-1">
-                  <Check className="w-3 h-3 text-white" />
-                </div>
-                <span>
-                  Pharma & Biotech (R&D/HEOR/Medical): Evidence packages,
-                  TLFs, RWE
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 bg-[#1B61C9] rounded-full flex justify-center items-center flex-shrink-0 mt-1">
-                  <Check className="w-3 h-3 text-white" />
-                </div>
-                <span>
-                  Public Health & NGOs: Program monitoring, outcomes &
-                  utilization
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 bg-[#1B61C9] rounded-full flex justify-center items-center flex-shrink-0 mt-1">
-                  <Check className="w-3 h-3 text-white" />
-                </div>
-                <span>
-                  Payers & Health Systems: Pathways, cost & quality reviews
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-6 h-6 sm:w-7 sm:h-7 bg-[#1B61C9] rounded-full flex justify-center items-center flex-shrink-0 mt-1">
-                  <Check className="w-3 h-3 text-white" />
-                </div>
-                <span>
-                  Academia & Think Tanks: Reproducible observational
-                  research
-                </span>
-              </li>
-            </ul>
-                              <Link href="#pricing">
+<div 
+  className="relative w-screen h-screen overflow-hidden flex justify-center items-center mt-[-32px]"
+  style={{
+    backgroundImage: "url('/images/rdlbg.png')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+  }}
+>  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    {/* Image Section */}
+    <div className="order-2 lg:order-1">
+      <img 
+        src="/images/r11.png" 
+        alt="Who it's for" 
+        className="w-full h-full object-cover rounded-lg" 
+      />
+    </div>
 
-            <button className="border border-white text-white px-6 sm:px-8 py-3 hover:bg-white hover:text-[#2C4A7C] transition flex items-center gap-4 sm:gap-7 text-sm sm:text-base">
-              View plans
-              <img src="/images/ar.svg" alt="Arrow" className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-            </Link>
-          </div>
-        </div>
-      </section>
+    {/* Text Section */}
+    <div className="text-white order-1 lg:order-2">
+      <h2 className="text-3xl sm:text-4xl xl:text-[50px] text-white mb-6 sm:mb-8 leading-tight isidora1 font-[700]">
+        Who it's for
+      </h2>
+
+      <ul className="space-y-4 sm:space-y-5 mb-6 sm:mb-8 work2 text-sm sm:text-base lg:text-[18px]">
+        {[
+          "Pharma & Biotech (R&D/HEOR/Medical): Evidence packages, TLFs, RWE",
+          "Public Health & NGOs: Program monitoring, outcomes & utilization",
+          "Payers & Health Systems: Pathways, cost & quality reviews",
+          "Academia & Think Tanks: Reproducible observational research",
+        ].map((item, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <div className="w-6 h-6 sm:w-7 sm:h-7 bg-[#1B61C9] rounded-full flex justify-center items-center flex-shrink-0 mt-1">
+              <Check className="w-3 h-3 text-white" />
+            </div>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <Link href="#pricing">
+        <button className="border border-white text-white px-6 sm:px-8 py-3 hover:bg-white hover:text-[#2C4A7C] transition flex items-center gap-4 sm:gap-7 text-sm sm:text-base">
+          View plans
+          <img src="/images/ar.svg" alt="Arrow" className="w-4 h-4 sm:w-5 sm:h-5" />
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+
 
       {/* Pricing */}
       <section id="pricing" className="px-4 py-8 sm:px-6 sm:py-12 lg:px-12 lg:py-20">
